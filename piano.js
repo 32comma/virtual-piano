@@ -17,5 +17,6 @@ for (var i = 0; i < sequence.length; i++) {
 }
 document.body.addEventListener('keydown', function (e) {
     const synth = new Tone.Synth().toDestination();
+    document.getElementById('sheet').innerHTML +=  (mapper.get(e.key) != undefined ? e.key : "")+" | " 
     synth.triggerAttackRelease(mapper.get(e.key), "16n");
 })
