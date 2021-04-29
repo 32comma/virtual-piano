@@ -149,9 +149,9 @@
             if (j == 0) {
                 o++;
             }
-            console.log(code[j] + o);
+            mapper.set(sequence[i], code[j] + o);
         }
-
+        console.log(mapper);
         // document.body.addEventListener('keydown', function (e) {
         //     console.log(e.key);
         //     //create a synth and connect it to the main output (your speakers)
