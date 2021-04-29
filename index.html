@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Playlist</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: calc(100%-1rem);
+            height: calc(100%-1rem);
+            background-color: black;
+            color: white;
+
+        }
+
+        body {
+            padding: 1rem;
+            margin: 1rem;
+            color: white;
+            font-size: small;
+            height: 100%;
+        }
+
+        .media-flex {
+            display: flexbox;
+            width: 100%;
+            padding: 0.3rem;
+        }
+
+        .media {
+            width: 50px;
+            display: inline-block;
+            border: 1px solid chartreuse;
+            color: white;
+            text-align: center;
+        }
+
+        .t {
+            width: 25px;
+            display: inline-block;
+        }
+
+        .u {
+
+            border: 1px solid gray;
+        }
+
+        .shift {
+            display: inline-block;
+            width: 50px;
+            border: 1px solid cyan;
+        }
+    </style>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js">
+    </script> -->
+</head>
+
+<body>
+
+    <main>
+
+    </main>
+    <div>
+        Keyboard
+    </div>
+    <div class='media-flex'>
+        <div class="media">1</div>
+        <div class="media">2</div>
+        <div class="media">3</div>
+        <div class="media">4</div>
+        <div class="media">5</div>
+        <div class="media">6</div>
+        <div class="media">7</div>
+        <div class="media">8</div>
+        <div class="media">9</div>
+        <div class="media">0</div>
+        <div class="media u">-</div>
+        <div class="media u">+</div>
+    </div>
+    <div class='media-flex'>
+        <div class="t"></div>
+        <div class="media">q</div>
+        <div class="media">w</div>
+        <div class="media">e</div>
+        <div class="media">r</div>
+        <div class="media">t</div>
+        <div class="media">y</div>
+        <div class="media">u</div>
+        <div class="media">i</div>
+        <div class="media">o</div>
+        <div class="media">p</div>
+        <div class="media u">{</div>
+        <div class="media u">}</div>
+    </div>
+
+    <div class='media-flex'>
+        <div class="t"></div>
+        <div class="t"></div>
+        <div class="media">a</div>
+        <div class="media">s</div>
+        <div class="media">d</div>
+        <div class="media">f</div>
+        <div class="media">g</div>
+        <div class="media">h</div>
+        <div class="media">j</div>
+        <div class="media">k</div>
+        <div class="media">l</div>
+        <div class="media u">;</div>
+        <div class="media u">'</div>
+    </div>
+
+    <div class='media-flex'>
+        <div class="shift">Shift</div>
+        <div class="media">z</div>
+        <div class="media">x</div>
+        <div class="media">c</div>
+        <div class="media">v</div>
+        <div class="media">b</div>
+        <div class="media">n</div>
+        <div class="media">m</div>
+        <div class="media u">,</div>
+        <div class="media u">.</div>
+        <div class="media u">/</div>
+        <div class="shift">Shift</div>
+    </div>
+    <script>
+        var sequence = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u',
+            'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n',
+            'm',
+        ];
+        var code = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
+
+        var mapper = new Map();
+        var idx = 0;
+        var o = 1;
+
+        for (var i = 0; i < sequence.length; i++) {
+            console.log(sequence[i]);
+            j = i % 7;
+            if (j == 0) {
+                o++;
+            }
+            console.log(code[j] + o);
+        }
+
+        // document.body.addEventListener('keydown', function (e) {
+        //     console.log(e.key);
+        //     //create a synth and connect it to the main output (your speakers)
+        //     const synth = new Tone.Synth().toDestination();
+
+
+
+        //     //play a middle 'C' for the duration of an 8th note
+        //     synth.triggerAttackRelease("C4", "8n");
+        // })
+    </script>
+
+</body>
+
+</html>
