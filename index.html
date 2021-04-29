@@ -60,8 +60,8 @@
             border: 1px solid cyan;
         }
     </style>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js">
-    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js">
+    </script>
 </head>
 
 <body>
@@ -152,16 +152,10 @@
             mapper.set(sequence[i], code[j] + o);
         }
         console.log(mapper);
-        // document.body.addEventListener('keydown', function (e) {
-        //     console.log(e.key);
-        //     //create a synth and connect it to the main output (your speakers)
-        //     const synth = new Tone.Synth().toDestination();
-
-
-
-        //     //play a middle 'C' for the duration of an 8th note
-        //     synth.triggerAttackRelease("C4", "8n");
-        // })
+        document.body.addEventListener('keydown', function (e) {
+            const synth = new Tone.Synth().toDestination();
+            synth.triggerAttackRelease(mapper.get(e.key), "16n");
+        })
     </script>
 
 </body>
