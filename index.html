@@ -5,61 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Playlist</title>
+    <title>Virtual Piano</title>
+    <link rel="stylesheet" href="piano.css">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        html,
-        body {
-            width: calc(100%-1rem);
-            height: calc(100%-1rem);
-            background-color: black;
-            color: white;
-
-        }
-
-        body {
-            padding: 1rem;
-            margin: 1rem;
-            color: white;
-            font-size: small;
-            height: 100%;
-        }
-
-        .media-flex {
-            display: flexbox;
-            width: 100%;
-            padding: 0.3rem;
-        }
-
-        .media {
-            width: 50px;
-            display: inline-block;
-            border: 1px solid chartreuse;
-            color: white;
-            text-align: center;
-        }
-
-        .t {
-            width: 25px;
-            display: inline-block;
-        }
-
-        .u {
-
-            border: 1px solid gray;
-        }
-
-        .shift {
-            display: inline-block;
-            width: 50px;
-            border: 1px solid cyan;
-        }
-    </style>
     <script src="https://cdn.jsdelivr.net/npm/tone@14.7.77/build/Tone.min.js">
     </script>
 </head>
@@ -132,30 +80,8 @@
         <div class="media u">/</div>
         <div class="shift">Shift</div>
     </div>
-    <script>
-        var sequence = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u',
-            'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n',
-            'm',
-        ];
-        var code = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
+    <script src="piano.js">
 
-        var mapper = new Map();
-        var idx = 0;
-        var o = 1;
-
-        for (var i = 0; i < sequence.length; i++) {
-            console.log(sequence[i]);
-            j = i % 7;
-            if (j == 0) {
-                o++;
-            }
-            mapper.set(sequence[i], code[j] + o);
-        }
-        console.log(mapper);
-        document.body.addEventListener('keydown', function (e) {
-            const synth = new Tone.Synth().toDestination();
-            synth.triggerAttackRelease(mapper.get(e.key), "16n");
-        })
     </script>
 
 </body>

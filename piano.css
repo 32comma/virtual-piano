@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: calc(100%-1rem);
+    height: calc(100%-1rem);
+    background-color: black;
+    color: white;
+
+}
+
+body {
+    padding: 1rem;
+    margin: 1rem;
+    color: white;
+    font-size: small;
+    height: 100%;
+}
+
+.media-flex {
+    display: flexbox;
+    width: 100%;
+    padding: 0.3rem;
+}
+
+.media {
+    width: 50px;
+    display: inline-block;
+    border: 1px solid chartreuse;
+    color: white;
+    text-align: center;
+}
+
+.t {
+    width: 25px;
+    display: inline-block;
+}
+
+.u {
+
+    border: 1px solid gray;
+}
+
+.shift {
+    display: inline-block;
+    width: 50px;
+    border: 1px solid cyan;
+}
