@@ -1,30 +1,38 @@
-.btn{
-    width:40px;
-    height:20px;
+.btn {
+    width: 40px;
+    height: 20px;
 }
-.note{
-    border:1px solid white;
-    float:left;
-    width:40px;
-    height:20px;
+
+.note {
+    border: 1px solid white;
+    float: left;
+    width: 100%;
+    height: 20px;
 }
-.prev{
-    width:800px;
-    height:100px;
+
+.prev {
+    width: 800px;
+    height: 200px;
     background-color: black;
     color: darkgray;
     font-size: xx-large;
+    position: relative;
 }
+
 .current {
-    width:800px;
-    height:100px;
+    width: 800px;
+    height: 200px;
     background-color: chartreuse;
     color: white;
+    position: relative;
     font-size: xx-large;
 }
-.next1,.next2 {
-    width:800px;
-    height:100px;
+
+.next1,
+.next2 {
+    width: 800px;
+    position: relative;
+    height: 200px;
     background-color: darkgreen;
     color: white;
     font-size: xx-large;
@@ -122,4 +130,77 @@ body {
     0% {}
 
     100% {}
+}
+
+.line-1 {
+    background-color: red;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+.line-2 {
+    background-color: orange;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    left: 40px;
+    bottom: 25px;
+}
+
+.line-3 {
+    background-color: yellow;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    left: 80px;
+    bottom: 50px;
+
+}
+
+.line-4 {
+    background-color: blue;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    left: 120px;
+    bottom: 75px;
+}
+
+.line-5 {
+    background-color: blue;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    left: 160px;
+    bottom: 100px;
+}
+
+.line-6 {
+    background-color: chocolate;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    left: 200px;
+    bottom: 125px;
+}
+
+.line-7 {
+    background-color: cyan;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    left: 240px;
+    bottom: 150px;
+}
+
+.line-8 {
+    background-color: magenta;
+    width: 50px;
+    height: 20px;
+    position: absolute;
+    left: 280px;
+    bottom: 175px;
 }

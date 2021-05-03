@@ -357,38 +357,38 @@
             var next1 = "";
             var next2 = "";
 
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < 8; i++) {
                 if (i < rythm[ri - 1]) {
-                    prev += `<div class='note'>${(i % 4)}</div>`;
+                    prev += `<div class='note line-${i+1}'>${i+1}</div>`;
                 } else {
                     prev += " ";
                 }
             }
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < 8; i++) {
                 if (i < rythm[ri]) {
-                    current += `<div class='note'>${(i % 4)}</div>`;
+                    current += `<div class='note line-${i+1}'>${i+1}</div>`;
                 } else {
                     current += " ";
                 }
             }
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < 8; i++) {
                 if (i < rythm[ri + 1]) {
-                    next1 += `<div class='note'>${(i % 4)}</div>`;
+                    next1 += `<div class='note line-${i+1}'>${i+1}</div>`;
                 } else {
                     next1 += " ";
 
                 }
             }
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < 8; i++) {
                 if (i < rythm[ri + 2]) {
-                    next2 += `<div class='note'>${(i % 4)}</div>`;
+                    next2 += `<div class='note line-${i+1}'>${i+1}</div>`;
                 } else {
                     next2 += " ";
 
                 }
             }
             rs.innerHTML =
-                `<div class='next2'>${ next1 }</div><div class='next1'>${ next2 }</div><div id='current' class='current'>${current}</div><div class='prev'>${prev}</div>`;
+                `<div class='next2'>${ next2 }</div><div class='next1'>${ next1 }</div><div  id='current' class='current'>${current}</div><div class='prev'>${prev}</div>`;
 
             if (ai == rythm[ri] || rythm[ri] == 0) {
                 console.log('equal')
