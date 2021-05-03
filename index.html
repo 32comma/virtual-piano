@@ -17,7 +17,20 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <style>
+        .btn{
+            width:40px;
+            height:20px;
+        }
+        .prev{
+            width:800px;
+            height:100px;
+            background-color: magenta;
+            color: black;
+            font-size: xx-large;
+        }
         .current {
+            width:800px;
+            height:100px;
             background-color: chartreuse;
             color: black;
             font-size: xx-large;
@@ -493,7 +506,7 @@
             }
             for (var i = 0; i < 8; i++) {
                 if (i < rythm[ri]) {
-                    current += "-";
+                    current += "- ";
                 } else {
                     current += " ";
                 }
@@ -515,7 +528,7 @@
                 }
             }
             rs.innerHTML =
-                `<div>${prev}</div><div class='current'>${current}</div><div>${ next1 }</div><div>${ next2 }</div>`;
+                `<div class='prev'>${prev}</div><div class='current'>${current}</div><div>${ next1 }</div><div>${ next2 }</div>`;
 
             if (ai == rythm[ri] || rythm[ri] == 0) {
                 console.log('equal')
