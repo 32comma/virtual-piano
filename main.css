@@ -1,0 +1,125 @@
+.btn{
+    width:40px;
+    height:20px;
+}
+.note{
+    border:1px solid white;
+    float:left;
+    width:40px;
+    height:20px;
+}
+.prev{
+    width:800px;
+    height:100px;
+    background-color: black;
+    color: darkgray;
+    font-size: xx-large;
+}
+.current {
+    width:800px;
+    height:100px;
+    background-color: chartreuse;
+    color: white;
+    font-size: xx-large;
+}
+.next1,.next2 {
+    width:800px;
+    height:100px;
+    background-color: darkgreen;
+    color: white;
+    font-size: xx-large;
+}
+
+.good {
+    color: chartreuse;
+}
+
+.bad {
+    color: red;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: calc(100%-1rem);
+    height: calc(100%-1rem);
+    background-color: black;
+    color: white;
+    position: relative;
+
+}
+
+body {
+    padding: 1rem;
+    margin: 1rem;
+    color: white;
+    font-size: small;
+    height: 100%;
+}
+
+.media-flex {
+    display: flexbox;
+    width: 65%;
+    padding: 0.3rem;
+}
+
+.media {
+    width: 25px;
+    display: inline-block;
+    border: 1px solid chartreuse;
+    color: white;
+    text-align: center;
+}
+
+.t {
+    width: 12.5px;
+    display: inline-block;
+}
+
+.u {
+
+    border: 1px solid gray;
+}
+
+.shift {
+    display: inline-block;
+    width: 12.5px;
+    border: 1px solid cyan;
+}
+
+@keyframes blink {
+    0% {
+        filter: invert(0);
+    }
+
+    50% {
+        filter: invert(1);
+    }
+
+    100% {
+        filter: invert(0);
+    }
+}
+
+.blink-animation {
+    animation: blink 10ms infinite;
+}
+
+#test {
+    animation: up none 180s;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    color: white;
+}
+
+
+@keyframes up {
+    0% {}
+
+    100% {}
+}
