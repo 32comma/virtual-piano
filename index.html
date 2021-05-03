@@ -270,7 +270,7 @@
         const synth = new Tone.Synth().toDestination();
         document.body.addEventListener('keydown', function (e) {
             document.getElementById('sheet').innerHTML += (mapper.get(e.key) != undefined ? e.key : "") + " | "
-            synth.triggerAttackRelease(mapper.get(e.key), "32n");
+            synth.triggerAttackRelease(mapper.get(e.key), "8n");
         })
     </script>
 </body>
