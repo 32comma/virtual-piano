@@ -319,3 +319,8 @@ body {
     top: 0px;
     animation: down8 1s none;
 }
+#rythm-sheet{
+    transform:rotate(90deg);
+    margin-top:50%;
+    margin-left:5%;
+}
