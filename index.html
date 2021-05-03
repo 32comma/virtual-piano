@@ -344,9 +344,10 @@
 
         });
 
+        const s = new Tone.Synth().toDestination();
+
         function ev(e) {
 
-            const s = new Tone.Synth().toDestination();
             ai++;
             var temp = ai % ri;
             console.log(ai + "/" + rythm[ri]);
@@ -359,21 +360,21 @@
 
             for (var i = 0; i < 8; i++) {
                 if (i < rythm[ri - 1]) {
-                    prev += `<div class='note line-${i+1}'>${i+1}</div>`;
+                    prev += `<div class='note line-${i+1}'>&nbsp;</div>`;
                 } else {
                     prev += " ";
                 }
             }
             for (var i = 0; i < 8; i++) {
                 if (i < rythm[ri]) {
-                    current += `<div class='note line-${i+1}'>${i+1}</div>`;
+                    current += `<div class='note line-${i+1}'>&nbsp;</div>`;
                 } else {
                     current += " ";
                 }
             }
             for (var i = 0; i < 8; i++) {
                 if (i < rythm[ri + 1]) {
-                    next1 += `<div class='note line-${i+1}'>${i+1}</div>`;
+                    next1 += `<div class='note line-${i+1}'>&nbsp;</div>`;
                 } else {
                     next1 += " ";
 
@@ -381,7 +382,7 @@
             }
             for (var i = 0; i < 8; i++) {
                 if (i < rythm[ri + 2]) {
-                    next2 += `<div class='note line-${i+1}'>${i+1}</div>`;
+                    next2 += `<div class='note line-${i+1}'>&nbsp;</div>`;
                 } else {
                     next2 += " ";
 
@@ -396,8 +397,12 @@
                 ai = 0;
             }
             document.getElementById('sheet').innerHTML += (hzMap[e.key] != undefined ? e.key : "");
-            s.triggerAttackRelease(hzMap[sequence.charAt(ci++)], "4n");
+            console.log(rythm[ri]);
+            const now = Tone.now()
+            s.triggerAttackRelease(hzMap[sequence.charAt(ci++)], "8n", now);
+
         }
+
 
         document.body.addEventListener('click', function (e) {
             ev(e);
