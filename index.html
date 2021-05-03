@@ -341,22 +341,16 @@
             var o3 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
             // const p = new Tone.PolySynth().toDestination();
             if (o1.includes(e.key)) {
-                a.triggerAttack(hzMap[e.key], now);
-                a.triggerRelease(now + 2);
+                //    a.triggerAttack(hzMap[e.key], now);
+                //  a.triggerRelease(now + 2);
+                f.triggerAttackRelease(hzMap[e.key], "4n");
             } else if (o2.includes(e.key)) {
-                f.triggerAttackRelease(hzMap[e.key], "8n");
+                a.triggerAttackRelease(hzMap[e.key], "4n");
             } else if (o3.includes(e.key)) {
-                f.triggerAttackRelease(hzMap[e.key], "16n");
+                p.triggerAttackRelease(hzMap[e.key], "4n");
             } else {
-
-                f.triggerAttackRelease(hzMap[e.key], "32n");
+                s.triggerAttackRelease(hzMap[e.key], "4n");
             }
-
-            // p.set({
-            //     detune: -1200
-            // });
-            // p.triggerAttack(hzMap[e.key], now);
-            // p.triggerRelease(now + 0.3);
 
         })
     </script>
