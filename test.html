@@ -10,7 +10,7 @@
 
 <body>
     <script>
-        var test = ` 48qe u q qe u q 59wr u w wr u w
+        var stringSheet = ` 48qe u q qe u q 59wr u w wr u w
 60et u e et u e 59wy u w wy u
 48qe u q qe u q 59wr u w wr u w
 60et u e et u e 59wy u w wy u
@@ -54,14 +54,12 @@
 5d 9 wf r a 4j 8 qx e ql 8 4j 8 qx e ql 5k 9 wx r wl 9
 5k 9 wx r wl 6l 0 ex t el 0 6l 0 ex t l 5z 9 wx r wk 9
 5z 9 wx r k 6ej 0 e t e 0 6epj `;
-        var list = test.split(' ');
-    </script>
-    <div id="result"></div>
-    <script>
+        var arraySheet = stringSheet.split(' ');
+   
         var result = document.getElementById('result')
-        for (var i = 0; i < list.length; i++) {
-            console.log(list[i].length);
-            result.innerHTML += list[i].length+" ";
+        for (var i = 0; i < arraySheet.length; i++) {
+            console.log(arraySheet[i].length);
+            result.innerHTML += arraySheet[i].length+" ";
         }
     </script>
 </body>

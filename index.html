@@ -17,6 +17,10 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <style>
+        .current{
+            background-color:chartreuse;
+            color:black;
+        }
         .pack {
             width: 100%;
             height: 100%;
@@ -122,6 +126,9 @@
             100% {}
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.js"></script>
+
+
 
 </head>
 
@@ -394,6 +401,52 @@
         var ri = 0;
         var ci = -1;
         var ai = 0;
+        var stringSheet = ` 48qe u q qe u q 59wr u w wr u w
+60et u e et u e 59wy u w wy u
+48qe u q qe u q 59wr u w wr u w
+60et u e et u e 59wy u w wy u
+6e u 0 t 0 e 0 u 0 t 0 e 0 u 0 t 0 e 0 u 0 t
+48qeup f q eup f q 59wrua f w rua f w
+60etus f e tus f e 59wyd f w yd f w
+4qeup f 8 qeup f q 5wrua f 9 wrua f w
+6etus f 0 etus f e 5wyd f 9 wyd f
+4qeup 8 uf q 8 q 4qeup 8 uf q 8 q 5wrua 9 uf w 9 w 5wrua 9 uf w 9 w
+6etus 0 uf e 0 e 6etus 0 uf e 0 e 5wyd 9 uf w 9 w 9yd w uf 9 ra
+4qeup 8 quf 8 q 8 4qeup 8 quf 8 q 8 5wrua 9 wuf 9 w 9 5wrua 9 wuf 9 w 9
+6etus 0 euf 0 e 0 6etus 0 euf 0 e 0 5wyd 9 wuf 9 w 9 5wyd 9 wuf 9 wra 9
+4qeup 8 qfx 8 q 8 4qeup 8 qfx 8 q 8 5wrua 9 wfx 9 w 9 5wrua 9 wfx 9 w 9
+6etus 0 efx 0 e 0 6etus 0 efx 0 e 0 5wyd 9 wfx 9 w 9 5wyd 9 wfx 9 wra 9
+4qeup 8 qfx 8 q 8 4qeup 8 qfx 8 q 8 5wrua 9 wfx 9 w 9 5wrua 9 wfx 9 w 9
+6etus 0 efx 0 e 0 6etus 0 efx 0 e 0 5wyd 9 wfx 9 w 9 5wyd 9 wfx 9 wak 9
+4qpfj 8 qfx 8 q 8 4qpfj 8 qfx 8 q 8 5wafk 9 wfx 9 w 9 5wafk 9 wfx 9 w 9
+6esfl 0 efx 0 e 0 6esfl 0 efx 0 e 0 5wdz 9 wfx 9 w 9 5wdz 9 fx 5ra
+48qe x q qe x q 59wr x w wr x w
+60et x e et x e 59wy x w wy x r
+6e u t 6e u 6 t 6e u 6 t 6 e u t
+4qe u q t q e q u q t q 5wr u w t w r w u w t w
+6et u e t e t e u e t e 5wy u w r w y w u w r w
+4qe u q t q e q u q t q 5wr u w t w r w u w t w
+6et u e t e t e u e t e 5wy u w r w y w u w r w
+4qeup 8 uf q ts 8q 4qeup 8 uf q ts 8q 5wrua 9 uf w ts 9w 5wrua 9 uf w ts 9w
+6etus 0 uf e ts 0e 6etus 0 uf e ts 0e 5wyd 9 uf w ra 9w 5wyd 9 uf w ra 9w
+4qeup 8 uf q ts 8q 4qeup 8 uf q ts 8q 5wrua 9 uf w ts 9w 5wrua 9 uf w ts 9w
+6etus 0 uf e ts 0e 6etus 0 uf e ts 0e 5wyd 9 uf w ra 9w 5wyd 9 uf w ra 9w
+4qeup 8 qfx 8 qsl 8 4qeup 8 qfx 8 qsl 8 5wrua 9 wfx 9 wsl 9 5wrua 9 wfx 9 wsl 9
+6etus 0 efx 0 esl 0 6etus 0 efx 0 esl 0 5wyd 9 wfx 9 wak 9 5wyd 9 wfx 9 wak 9
+4qeup 8 qfx 8 qsl 8 4qeup 8 qfx 8 qsl 8 5wrua 9 wfx 9 wsl 9 5wrua 9 wfx 9 wsl 9
+6etus 0 efx 0 esl 0 6etus 0 efx 0 esl 0 5wyd 9 wfx 9 wak 9 5wyd 9 wfx 9 wak 9
+4qpfj 8 qfx 8 qsl 8 4qpfj 8 qfx 8 qsl 8 5wafk 9 wfx 9 wsl 9 5wafk 9 wfx 9 wsl 9
+6esfl 0 efx 0 esl 0 6esfl 0 efx 0 esl 0 5wdz 9 wfx 9 wak 9 5wdz 9 wfx 9 wak 9
+4qpfj 8 qfx 8 qsl 8 4qpfj 8 qfx 8 qsl 8 5wafk 9 wfx 9 wsl 9 5wafk 9 wfx 9 wsl 9
+6esfl 0 efx 0 esl 0 6esfl 0 efx 0 esl 0 5wdz 9 wfx 9 wak 9 5wdz 9fx w 9ak w
+5wdz 9 fx w p 9 6p 0 ef t es 0 6p 0 ef t es 0 6p 0 ef t es 0
+6p 0 ef t s 4p 8 qf e qs 8 4p 8 qf e qs 5a 9 wf r ws 9
+5a 9 wf r ws 6s 0 ef t es 0 6s 0 ef t s 5d 9 wf r wa 9
+5d 9 wf r a 4j 8 qx e ql 8 4j 8 qx e ql 5k 9 wx r wl 9
+5k 9 wx r wl 6l 0 ex t el 0 6l 0 ex t l 5z 9 wx r wk 9
+5z 9 wx r k 6ej 0 e t e 0 6epj `;
+        var arraySheet = stringSheet.split(' ');
+        var ai2 = 0;
         document.body.addEventListener('keydown', function (e) {
             console.log(e.key);
 
@@ -428,27 +481,47 @@
         rs.innerHTML = rythm[ri];
         document.body.addEventListener('keypress', function (e) {
             ai++;
+            var temp = ai % ri;
             console.log(ai + "/" + rythm[ri]);
             var rs = document.getElementById('rythm-sheet');
             var prev = "";
             var current = "";
-            
+
             var next1 = "";
             var next2 = "";
 
-            for (var i = 0; i < rythm[ri - 1]; i++) {
-                prev += "-";
+            for (var i = 0; i < 16; i++) {
+                if (i < rythm[ri - 1]) {
+                    prev += "-";
+                } else {
+                    prev += " ";
+                }
             }
-            for (var i = 0; i < rythm[ri]; i++) {
-                current += "+";
+            for (var i = 0; i < 8; i++) {
+                if (i < rythm[ri]) {
+                    current += "-";
+                } else {
+                    current += " ";
+                }
             }
-            for (var i = 0; i < rythm[ri + 1]; i++) {
-                next1 += "-";
+            for (var i = 0; i < 8; i++) {
+                if (i < rythm[ri + 1]) {
+                    next1 += "-";
+                } else {
+                    next1 += " ";
+
+                }
             }
-            for (var i = 0; i < rythm[ri + 2]; i++) {
-                next2 += "-";
+            for (var i = 0; i < 8; i++) {
+                if (i < rythm[ri + 2]) {
+                    next2 += "-";
+                } else {
+                    next2 += " ";
+
+                }
             }
-            rs.innerHTML = `<div>${prev}</div><div>${current}</div><div>${ next1 }</div><div>${ next2 }</div>`;
+            rs.innerHTML =
+                `<div>${prev}</div><div class='current'>${current}</div><div>${ next1 }</div><div>${ next2 }</div>`;
 
             if (ai == rythm[ri] || rythm[ri] == 0) {
                 console.log('equal')
@@ -461,13 +534,52 @@
     </script>
     <script>
     </script>
+    <main>
 
+    </main>
     <div id="rythm-sheet">
 
     </div>
 </body>
 <script>
+    let rectWidth;
 
+    function setup() {
+        createCanvas(720, 400);
+        noStroke();
+        background(0);
+        rectWidth = width / 4;
+    }
+
+    function draw() {
+        // draw()를 여기에 작성하여 키보드 입력을 기다리는 동안 반복되게 합니다.
+    }
+
+    function keyPressed() {
+        let keyIndex = -1;
+        if (key >= 'a' && key <= 'z') {
+            keyIndex = key.charCodeAt(0) - 'a'.charCodeAt(0);
+
+
+        }
+        if (keyIndex === -1) {
+            // 글자 자판이 아닐 경우, 화면을 비웁니다.
+            background(0);
+        } else {
+            // 글자 자판일 경우, 사각면을 채웁니다.
+            var c = hzMap[key].charAt(0);
+            var colorMap = new Map();
+            colorMap.set('a', 25);
+            colorMap.set('b', 50);
+            colorMap.set('c', 75);
+            colorMap.set('d', 100);
+            colorMap.set('e', 125);
+            colorMap.set('f', 150);
+            colorMap.set('g', 175);
+
+
+        }
+    }
 </script>
 
 </html>
