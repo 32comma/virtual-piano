@@ -201,6 +201,9 @@
     <div id="sheet">
 
     </div>
+    <div id="rythm-sheet">
+
+    </div>
     <script>
         var keyMap = {
             "1": document.getElementById('key-1'),
@@ -421,14 +424,37 @@
             }
         })
         const s = new Tone.Synth().toDestination();
+        var rs = document.getElementById('rythm-sheet');
+        rs.innerHTML = rythm[ri];
         document.body.addEventListener('keypress', function (e) {
             ai++;
             console.log(ai + "/" + rythm[ri]);
+            var rs = document.getElementById('rythm-sheet');
+            var prev = "";
+            var current = "";
+            
+            var next1 = "";
+            var next2 = "";
+
+            for (var i = 0; i < rythm[ri - 1]; i++) {
+                prev += "-";
+            }
+            for (var i = 0; i < rythm[ri]; i++) {
+                current += "+";
+            }
+            for (var i = 0; i < rythm[ri + 1]; i++) {
+                next1 += "-";
+            }
+            for (var i = 0; i < rythm[ri + 2]; i++) {
+                next2 += "-";
+            }
+            rs.innerHTML = `<div>${prev}</div><div>${current}</div><div>${ next1 }</div><div>${ next2 }</div>`;
+
             if (ai == rythm[ri] || rythm[ri] == 0) {
                 console.log('equal')
                 ri++;
                 ai = 0;
-            } 
+            }
             document.getElementById('sheet').innerHTML += (hzMap[e.key] != undefined ? e.key : "");
             s.triggerAttackRelease(hzMap[sequence.charAt(ci++)], "4n");
         });
