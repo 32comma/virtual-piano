@@ -17,10 +17,12 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
     <style>
-        .current{
-            background-color:chartreuse;
-            color:black;
+        .current {
+            background-color: chartreuse;
+            color: black;
+            font-size: xx-large;
         }
+
         .pack {
             width: 100%;
             height: 100%;
@@ -468,18 +470,10 @@
             }
 
         });
-        document.body.addEventListener('keyup', function (e) {
-            try {
-                var keyElement = document.getElementById('key-' + e.key);
-                keyElement.classList.remove('blink-animation');
-            } catch (e) {
-                //console.log(e);
-            }
-        })
-        const s = new Tone.Synth().toDestination();
-        var rs = document.getElementById('rythm-sheet');
-        rs.innerHTML = rythm[ri];
-        document.body.addEventListener('keypress', function (e) {
+
+        function ev(e) {
+
+            const s = new Tone.Synth().toDestination();
             ai++;
             var temp = ai % ri;
             console.log(ai + "/" + rythm[ri]);
@@ -530,6 +524,23 @@
             }
             document.getElementById('sheet').innerHTML += (hzMap[e.key] != undefined ? e.key : "");
             s.triggerAttackRelease(hzMap[sequence.charAt(ci++)], "4n");
+        }
+
+        document.body.addEventListener('click', function (e) {
+            ev(e);
+        });
+        document.body.addEventListener('keyup', function (e) {
+            try {
+                var keyElement = document.getElementById('key-' + e.key);
+                keyElement.classList.remove('blink-animation');
+            } catch (e) {
+                //console.log(e);
+            }
+        })
+        var rs = document.getElementById('rythm-sheet');
+        rs.innerHTML = rythm[ri];
+        document.body.addEventListener('keypress', function (e) {
+            ev(e);
         });
     </script>
     <script>
