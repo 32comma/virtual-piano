@@ -159,7 +159,80 @@
             "B": document.getElementById('key-b'),
             "N": document.getElementById('key-n'),
             "M": document.getElementById('key-m'),
-
+        }
+        var hzMap = {
+            "1": 'C2',
+            "2": 'D2',
+            "3": 'E2',
+            "4": 'F2',
+            "5": 'G2',
+            "6": 'A2',
+            "7": 'B2',
+            "8": 'C3',
+            "9": 'D3',
+            "0": 'E3',
+            "!": 'Db2',
+            "@": 'Eb2',
+            "#": 'Fb2',
+            "$": 'Gb2',
+            "%": 'Ab2',
+            "^": 'Bb2',
+            "&": 'Cb3',
+            "*": 'Db3',
+            "(": 'Eb3',
+            ")": 'Fb3',
+            "q": 'F3',
+            "w": 'G3',
+            "e": 'A3',
+            "r": 'B3',
+            "t": 'C4',
+            "y": 'D4',
+            "u": 'E4',
+            "i": 'F4',
+            "o": 'G4',
+            "p": 'A4',
+            "a": 'B4',
+            "s": 'C5',
+            "d": 'D5',
+            "f": 'E5',
+            "g": 'F5',
+            "h": 'G5',
+            "j": 'A5',
+            "k": 'B5',
+            "l": 'C6',
+            "z": 'D6',
+            "x": 'E6',
+            "c": 'F6',
+            "v": 'G6',
+            "b": 'A6',
+            "n": 'B6',
+            "m": 'C7',
+            "Q": 'Gb3',
+            "W": 'Ab3',
+            "E": 'Bb3',
+            "R": 'Cb4',
+            "T": 'Db4',
+            "Y": 'Eb4',
+            "U": 'Fb4',
+            "I": 'Gb4',
+            "O": 'Ab4',
+            "P": 'Bb4',
+            "A": 'Cb5',
+            "S": 'Db5',
+            "D": 'Eb5',
+            "F": 'Fb5',
+            "G": 'Gb5',
+            "H": 'Ab5',
+            "J": 'Bb5',
+            "K": 'Cb6',
+            "L": 'Db6',
+            "Z": 'Eb6',
+            "X": 'Fb6',
+            "C": 'Gb6',
+            "V": 'Ab6',
+            "B": 'Bb6',
+            "N": 'Cb7',
+            "M": 'Db7',
         }
     </script>
     <script>
@@ -168,7 +241,7 @@
                 var keyElement = document.getElementById('key-' + e.key);
                 keyElement.classList.toggle('blink-animation')
             } catch (e) {
-                console.log(e);
+                // console.log(e);
             }
 
         });
@@ -177,7 +250,7 @@
                 var keyElement = document.getElementById('key-' + e.key);
                 keyElement.classList.remove('blink-animation');
             } catch (e) {
-                console.log(e);
+                //console.log(e);
             }
         })
     </script>
@@ -249,28 +322,34 @@
 
     </div>
     <script>
-        var sequence = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u',
-            'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n',
-            'm',
-        ];
-        var code = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
-
-        var mapper = new Map();
-        var idx = 0;
-        var o = 1;
-
-        for (var i = 0; i < sequence.length; i++) {
-            j = i % 7;
-            if (j == 0) {
-                o++;
-            }
-            mapper.set(sequence[i], code[j] + o);
-        }
-
         const synth = new Tone.Synth().toDestination();
-        document.body.addEventListener('keydown', function (e) {
-            document.getElementById('sheet').innerHTML += (mapper.get(e.key) != undefined ? e.key : "") + " | "
-            synth.triggerAttackRelease(mapper.get(e.key), "8n");
+        // var sequence = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e', 'r', 't', 'y', 'u',
+        //     'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n',
+        //     'm',
+        // ];
+        // var code = ['c', 'd', 'e', 'f', 'g', 'a', 'b'];
+
+        // var mapper = new Map();
+        // var idx = 0;
+        // var o = 1;
+
+        // for (var i = 0; i < sequence.length; i++) {
+        //     j = i % 7;
+        //     if (j == 0) {
+        //         o++;
+        //     }
+        //     mapper.set(sequence[i], code[j] + o);
+        // }
+
+        document.body.addEventListener('keypress', function (e) {
+
+            document.getElementById('sheet').innerHTML += (hzMap[e.key] != undefined ? e.key : "") + " | "
+            const synth = new Tone.Synth().toDestination();
+            const now = Tone.now()
+            // trigger the attack immediately
+            synth.triggerAttack(hzMap[e.key], now)
+            // wait one second before triggering the release
+            synth.triggerRelease(now + 1)
         })
     </script>
 </body>
