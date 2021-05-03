@@ -232,9 +232,9 @@
             "1": 'C2',
             "2": 'D2',
             "3": 'E2',
-            "4": 'f',
+            "4": 'F2',
             "5": 'G2',
-            "6": 'a',
+            "6": 'A2',
             "7": 'B2',
             "8": 'C3',
             "9": 'D3',
@@ -306,9 +306,9 @@
         //     "1": 'C2',
         //     "2": 'D2',
         //     "3": 'E2',
-        //     "4": 'f',
+        //     "4": 'F2',
         //     "5": 'G2',
-        //     "6": 'a',
+        //     "6": 'A2',
         //     "7": 'B2',
         //     "8": 'C3',
         //     "9": 'D3',
@@ -323,16 +323,16 @@
         //     "*": 'Db3',
         //     "(": 'Eb3',
         //     ")": 'Fb3',
-        //     "q": 'f',
+        //     "q": 'F2',
         //     "w": 'G2',
-        //     "e": 'a',
+        //     "e": 'A2',
         //     "r": 'B2',
         //     "t": 'C2',
         //     "y": 'D2',
         //     "u": 'E2',
-        //     "i": 'f',
+        //     "i": 'F2',
         //     "o": 'G2',
-        //     "p": 'a',
+        //     "p": 'A2',
         //     "a": 'B3',
         //     "s": 'C3',
         //     "d": 'D3',
@@ -403,43 +403,38 @@
         //const pluck = new Tone.PluckSynth().toDestination();
         //const synth = new Tone.MonoSynth().toDestination();
 
+        const f = new Tone.FMSynth().toDestination();
+        const a = new Tone.AMSynth().toDestination();
+        const p = new Tone.PolySynth().toDestination();
+        const s = new Tone.Synth().toDestination();
         document.body.addEventListener('keypress', function (e) {
             document.getElementById('sheet').innerHTML += (hzMap[e.key] != undefined ? e.key : "") + " | "
             const now = Tone.now();
-            const f = new Tone.FMSynth().toDestination();
-            const a = new Tone.FMSynth().toDestination();
             var l1 = ['1', '2', '3', '4', '5'];
             var l2 = ['6', '7', '8', '9', '0'];
             var l3 = ['q', 'w', 'e', 'r', 't'];
             var l4 = ['y', 'u', 'i', 'o', 'p'];
             var l5 = ['a', 's', 'd', 'f', 'g'];
             var l6 = ['h', 'j', 'k', 'l'];
-            var l7 = ['z', 'x', 'c', 'v'];
-            var l8 = ['b', 'n', 'm'];
+            var l7 = ['z', 'x', 'k', 'l'];
+            var l8 = ['h', 'j', 'k', 'l'];
             // const p = new Tone.PolySynth().toDestination();
             if (l1.includes(e.key)) {
-                f.triggerAttackRelease(hzMap[e.key], "4n");
-            }
-            if (l2.includes(e.key)) {
-                f.triggerAttackRelease(hzMap[e.key], "4n");
-            }
-            if (l3.includes(e.key)) {
-                a.triggerAttackRelease(hzMap[e.key], "8n");
-            }
-            if (l4.includes(e.key)) {
-                a.triggerAttackRelease(hzMap[e.key], "8n");
-            }
-            if (l5.includes(e.key)) {
-                f.triggerAttackRelease(hzMap[e.key], "16n");
-            }
-            if (l6.includes(e.key)) {
-                f.triggerAttackRelease(hzMap[e.key], "16n");
-            }
-            if (l7.includes(e.key)) {
-                a.triggerAttackRelease(hzMap[e.key], "32n");
-            }
-            if (l8.includes(e.key)) {
-                a.triggerAttackRelease(hzMap[e.key], "32n");
+                f.triggerAttack(hzMap[e.key], now);
+                f.triggerRelease(now + 2);
+            } else if (l2.includes(e.key)) {
+                a.triggerAttack(hzMap[e.key], now);
+                a.triggerRelease(now + 1);
+            } else if (l3.includes(e.key)) {
+                p.triggerAttackRelease(hzMap[e.key], "32n");
+            } else if (l4.includes(e.key)) {
+                s.triggerAttackRelease(hzMap[e.key], "32n");
+            } else if (l5.includes(e.key)) {
+                p.triggerAttackRelease(hzMap[e.key], "32n");
+            } else if (l6.includes(e.key)) {
+                s.triggerAttackRelease(hzMap[e.key], "32n");
+            } else if (l7.includes(e.key)) {
+                s.triggerAttackRelease(hzMap[e.key], "32n");
             }
 
         })
