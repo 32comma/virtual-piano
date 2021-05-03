@@ -266,10 +266,11 @@
             }
             mapper.set(sequence[i], code[j] + o);
         }
+
+        const synth = new Tone.Synth().toDestination();
         document.body.addEventListener('keydown', function (e) {
-            const synth = new Tone.Synth().toDestination();
             document.getElementById('sheet').innerHTML += (mapper.get(e.key) != undefined ? e.key : "") + " | "
-            synth.triggerAttackRelease(mapper.get(e.key), "16n");
+            synth.triggerAttackRelease(mapper.get(e.key), "32n");
         })
     </script>
 </body>
