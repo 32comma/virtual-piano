@@ -15,8 +15,8 @@
     <script src="keyList.js">
     </script>
     <script src="hzMap.js"></script>
-    <script src="hzMapU2.js"></script>
-    <script src="hzMapD2.js"></script>
+    <script src="hzMapU3.js"></script>
+    <script src="hzMapD5.js"></script>
     <script src="rythm.js"></script>
     <script src="stringSheet.js"></script>
     <link rel='stylesheet' href='main.css' />
@@ -101,7 +101,7 @@
                 keyElement.classList.toggle('blink-animation')
 
                 const now = Tone.now();
-                ss.triggerAttackRelease(hzMap[sequence.charAt(ci++)], "8n", now);
+                ss.triggerAttackRelease(hzMap[sequence.charAt(ci++)], "8n", now + 0.5);
             } catch (e) {
                 // console.log(e);
             }
@@ -118,7 +118,7 @@
                 keyElement.classList.remove('blink-animation');
 
                 const now = Tone.now();
-                ss.triggerAttackRelease(hzMapU2[sequence.charAt(ci++)], "8n", now);
+                ss.triggerAttackRelease(hzMapU5[sequence.charAt(ci++)], "8n", );
             } catch (e) {
                 //console.log(e);
             }
@@ -135,7 +135,7 @@
             try {
 
                 const now = Tone.now();
-                s.triggerAttackRelease(hzMapD2[sequence.charAt(ci++)], "8n", now);
+                s.triggerAttackRelease(hzMapU3[sequence.charAt(ci++)], "8n", now);
             } catch (e) {
 
                 //console.log(e);
