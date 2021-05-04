@@ -73,5 +73,4 @@ var hzMap = {
         "B": 'Bb6',
         "N": 'Cb7',
         "M": 'Db7',
-    } <
-    /script>
+};
