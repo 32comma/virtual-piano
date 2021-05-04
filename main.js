@@ -32,7 +32,7 @@ document.body.addEventListener('keyup', function (e) {
         keyElement.classList.remove('blink-animation');
 
         const now = Tone.now();
-        ss.triggerAttackRelease(hzMapU5[sequence.charAt(ci++)], "32n", );
+        //ss.triggerAttackRelease(hzMapU5[sequence.charAt(ci++)], "32n",now );
     } catch (e) {
         //console.log(e);
     }
