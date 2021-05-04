@@ -96,7 +96,7 @@ body {
 .shift {
     display: inline-block;
     width: 12.5px;
-    border: 1px solid cyan;
+    border: 1px solid gray;
 }
 
 @keyframes blink {
