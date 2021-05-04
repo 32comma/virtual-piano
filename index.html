@@ -108,7 +108,8 @@
 
         });
 
-
+        const s = new Tone.FMSynth().toDestination();
+            
 
         document.body.addEventListener('keyup', function (e) {
             try {
@@ -119,7 +120,6 @@
             }
         })
         document.body.addEventListener('keypress', function (e) {
-            const s = new Tone.Synth().toDestination();
             ai++;
             var temp = ai % ri;
 
@@ -128,7 +128,7 @@
                 ai = 0;
             }
             console.log(rythm[ri]);
-            const now = Tone.now()
+            const now = Tone.now();
             s.triggerAttackRelease(hzMap[sequence.charAt(ci++)], "8n", now);
 
         });
