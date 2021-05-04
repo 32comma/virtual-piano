@@ -12,7 +12,11 @@
     </script>
     <script src="keyMap.js">
     </script>
+    <script src="keyList.js">
+    </script>
     <script src="hzMap.js"></script>
+    <script src="hzMapU2.js"></script>
+    <script src="hzMapD2.js"></script>
     <script src="rythm.js"></script>
     <script src="stringSheet.js"></script>
     <link rel='stylesheet' href='main.css' />
@@ -83,38 +87,38 @@
         var ri = 0;
         var ci = -1;
         var ai = 0;
-
+        const s = new Tone.FMSynth().toDestination();
+        const ss = new Tone.AMSynth().toDestination();
         var arraySheet = stringSheet.split(' ');
         var ai2 = 0;
         document.body.addEventListener('keydown', function (e) {
-            console.log(e.key);
 
-            if (e.key == 'Backspace') {
-                var html = document.getElementById('sheet').innerHTML;
-                html = html.substring(0, html.length - 1);
-                document.getElementById('sheet').innerHTML = html;
-            } else if (e.key == '!' || e.key == "'" || e.key == '"' || e.key == ',' || e.key == '.') {
-                document.getElementById('sheet').innerHTML += e.key;
-            }
         });
         document.body.addEventListener('keypress', function (e) {
 
             try {
                 var keyElement = document.getElementById('key-' + e.key);
                 keyElement.classList.toggle('blink-animation')
+
+                const now = Tone.now();
+                ss.triggerAttackRelease(hzMap[sequence.charAt(ci++)], "8n", now);
             } catch (e) {
                 // console.log(e);
             }
 
         });
 
-        const s = new Tone.FMSynth().toDestination();
-            
+
+
 
         document.body.addEventListener('keyup', function (e) {
+
             try {
                 var keyElement = document.getElementById('key-' + e.key);
                 keyElement.classList.remove('blink-animation');
+
+                const now = Tone.now();
+                ss.triggerAttackRelease(hzMapU2[sequence.charAt(ci++)], "8n", now);
             } catch (e) {
                 //console.log(e);
             }
@@ -128,8 +132,14 @@
                 ai = 0;
             }
             console.log(rythm[ri]);
-            const now = Tone.now();
-            s.triggerAttackRelease(hzMap[sequence.charAt(ci++)], "8n", now);
+            try {
+
+                const now = Tone.now();
+                s.triggerAttackRelease(hzMapD2[sequence.charAt(ci++)], "8n", now);
+            } catch (e) {
+
+                //console.log(e);
+            }
 
         });
     </script>
