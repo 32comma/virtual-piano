@@ -49,7 +49,7 @@ document.body.addEventListener('keypress', function (e) {
     try {
 
         const now = Tone.now();
-        s.triggerAttackRelease(hzMapU3[sequence.charAt(ci++)], "32n", now);
+        //s.triggerAttackRelease(hzMapU3[sequence.charAt(ci++)], "32n", now);
     } catch (e) {
 
         //console.log(e);
